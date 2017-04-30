@@ -1,0 +1,12 @@
+main: com.gmail.ak1cec0ld.plugins.Pokedex.Pokedex
+name: Pokedex
+version: 2.0.0
+author: [________,1cec0ld]
+description: A complete library of all Pokedex entries for Pokemon
+prefix: PDex
+permissions:
+  pokedex.admin:
+    description: Gives access to all commands
+commands:
+  pokedex:
+    description: Does Everything in the Pokedex Plugin
