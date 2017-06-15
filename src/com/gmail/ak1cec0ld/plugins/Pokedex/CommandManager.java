@@ -14,24 +14,24 @@ public class CommandManager implements CommandExecutor{
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(label.equalsIgnoreCase("pokedex")){
-            if(sender instanceof Player){
+            if(sender instanceof Player && args.length > 0){
                 Player player = (Player)sender;
-                if(args[0].equalsIgnoreCase("on") && args.length == 1){
-                    if(plugin.isUsingPokedex(player.getName())){
+                if(args.length == 1 && args[0].equalsIgnoreCase("on")){
+                    if(args.length == 1 && plugin.isUsingPokedex(player.getName())){
                         player.sendMessage("§c[Pokédex] §6Already connected to database!");
                         player.sendMessage("§c[Pokédex] §6Type §d/pokedex off §6to disconnect");
                         player.sendMessage("§c[Pokédex] §6Or just type §doff§6!");
                     } else {
                         plugin.toggleUsingPokedex(player);
                     }
-                } else if(args[0].equalsIgnoreCase("off") && args.length == 1){
+                } else if(args.length == 1 && args[0].equalsIgnoreCase("off")){
                     if(!plugin.isUsingPokedex(player.getName())){
                         player.sendMessage("§c[Pokédex] §6Not connected to database!");
                         player.sendMessage("§c[Pokédex] §6Type §d/pokedex on §6to connect!");
                     } else {
                         plugin.toggleUsingPokedex(player);
                     }
-                } else if(args[0].equalsIgnoreCase("help") && args.length == 1){
+                } else if(args.length == 1 && args[0].equalsIgnoreCase("help")){
                     player.sendMessage("§c[Pokédex] §"+(plugin.isUsingPokedex(player.getName())?"2":"4")+"§lHelp Menu");
                     player.sendMessage("§c[Pokédex] §6Type §d/pokedex on §6to turn on Pokédex");
                     player.sendMessage("§c[Pokédex] §6Type §d/pokedex off §6to turn off Pokédex");
